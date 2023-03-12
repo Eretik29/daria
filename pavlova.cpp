@@ -23,6 +23,35 @@ int main()
 	}
 }
 
+int input(positionOfSymbol* positionCurlyBracket, ProgramText* code)
+{
+	int isError = 0; //Флаг наличия ошибки (0 - ошибок нет, 1 - ошибки есть)
+	scanf_s("%d %d", &positionCurlyBracket->stringIndex, &positionCurlyBracket->symbolInStringIndex);
+	if (positionCurlyBracket->stringIndex > 39 || positionCurlyBracket->stringIndex < 0 || positionCurlyBracket->symbolInStringIndex>79 || positionCurlyBracket->symbolInStringIndex < 0)
+	{
+		isError = 1;
+	}
+	else
+	{
+		scanf_s("%d", &code->stringCount);
+		if (code->stringCount < 1 || code->stringCount>40)
+		{
+			isError = 1;
+		}
+		else
+		{
+			getchar();
+
+			for (int i = 0; i < code->stringCount; i++)
+			{
+				gets_s(code->code[i]);
+			}
+		}
+	}
+
+	return isError;
+}
+
 successWork_findControlOperator findControlOperator(const ProgramText* code, const positionOfSymbol* positionOfCurlyBracket, Operator* operatorInformation)
 {
 	//Если переданная позиция не является скобкой...
