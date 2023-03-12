@@ -31,22 +31,22 @@ int input(positionOfSymbol* positionCurlyBracket, ProgramText* code)
 	{
 		isError = 1;
 	}
-	else
-	{
-		scanf_s("%d", &code->stringCount);
-		if (code->stringCount < 1 || code->stringCount>40)
-		{
-			isError = 1;
-		}
-		else
-		{
-			getchar();
-
-			for (int i = 0; i < code->stringCount; i++)
-			{
-				gets_s(code->code[i]);
-			}
-		}
+	//else
+	//{
+	//	scanf_s("%d", &code->stringCount);
+	//	if (code->stringCount < 1 || code->stringCount>40)
+	//	{
+	//		isError = 1;
+	//	}
+	//	else
+	//	{
+	//		getchar();
+//
+//			for (int i = 0; i < code->stringCount; i++)
+//			{
+//				gets_s(code->code[i]);
+//			}
+//		}
 	}
 
 	return isError;
